@@ -1,0 +1,24 @@
+# Ellie Parobek
+# Run by just removing the '.txt' from the file name so it is a python '.py' file or go to https://repl.it/languages/python3 to run on the web
+import json
+import csv
+from datetime import date
+
+csvColumns = ['name','creditcard']
+csvData = []
+
+# Read the json file
+with open('data.json') as jsonFile:
+    jsonData = json.load(jsonFile)
+    date = date.today().strftime("%Y%m%d")
+    # Loop through each entry in the json file
+    for person in jsonData:
+      # Make sure credit card is not null
+        if person['creditcard'] is not None:
+          csvData.append({'name': person['name'], 'creditcard': person['creditcard']})
+    # Write each json data into csv file
+    with open(date + '.csv', 'w') as csvFile:
+        writer = csv.DictWriter(csvFile, fieldnames = csvColumns)
+        writer.writeheader()
+        for person in csvData:
+            writer.writerow(person)
