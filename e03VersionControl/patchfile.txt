@@ -1,0 +1,35 @@
+--- diffexample2.js	2020-02-06 16:53:59.000000000 -0500
++++ diffexample2-new.js	2020-02-06 16:53:11.000000000 -0500
+@@ -10,10 +10,17 @@
+ 
+ //Node JS dependencies for reading and writing files to the file system.
+ var fs = require('fs');
++//Get the file name from the command line, the third argument (first two are 'node' and the name of this file)
++var fileName = "";
++process.argv.forEach(function (val, index, array) {
++  if (index == 2) {
++    fileName = val;
++  }
++});
+ //Read the file from the file system
+-var obj = JSON.parse(fs.readFileSync('./data.json','utf8'));
++var obj = JSON.parse(fs.readFileSync(fileName,'utf8'));
+ //get the date from the first item.
+-var date = new Date(obj[0].timestamp);
++var date = new Date(Date.now());
+ //format the date to the YYYYMMDD.csv required for the submission.
+ var datef = date.getFullYear() + pad2(date.getMonth()+1) + pad2(date.getDate());
+ //to return string object
+@@ -22,9 +29,9 @@
+ for(var i = 0; i < obj.length; i++){
+   //item is a single person
+   var item = obj[i];
+-  //check if item has a creditcard then save the :name and :creditcard to the cvs object in the cvs format
+-  if(item.creditcard != null){
+-    csv += item.name + "," + item.creditcard + "\n";
++  //check if item has a creditcard and email then save the :name, :creditcard, and :email to the cvs object in the cvs format
++  if(item.creditcard != null && item.email) {
++    csv += item.name + "," + item.creditcard + "," + item.email + "\n";
+   }
+ }
+ 
