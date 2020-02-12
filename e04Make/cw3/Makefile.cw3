@@ -1,5 +1,8 @@
+# Ellie Parobek
+# e04Make Makefile.cw3
+
 VPATH=src include
-CPPFLAGS = -I include
+CPPFLAGS=-I include
 
 countWords : counter.o lexer.o -lfl
 countWords.o : counter.h

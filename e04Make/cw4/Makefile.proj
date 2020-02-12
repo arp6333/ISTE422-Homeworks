@@ -1,0 +1,19 @@
+# Ellie Parobek
+# e04Make Makefile.proj
+# This make file is under the assumption that the file structure will be the one created during e03 where files are separated under build, src, and test
+
+# Build the java files
+build :
+	javac -d ./build -cp lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar ./src/java/*.java ; javac -d ./build -sourcepath ./src/java -cp lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar ./test/java/*.java
+
+# Run the java tests
+runTest :
+	java -cp .:lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar:./build org.junit.runner.JUnitCore EdgeConnectorTest
+
+# Run the program
+runProgram :
+	java -cp ./build RunEdgeConvert
+
+# Clean all class files
+clean :
+	rm ./build/*.class

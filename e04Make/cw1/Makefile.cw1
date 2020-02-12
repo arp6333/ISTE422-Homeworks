@@ -1,3 +1,6 @@
+# Ellie Parobek
+# e04Make Makefile.cw1
+
 countWords : countWords.o lexer.o
 	gcc countWords.o lexer.o -lfl -o countWords
 
