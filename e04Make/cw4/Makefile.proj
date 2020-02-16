@@ -2,6 +2,8 @@
 # e04Make Makefile.proj
 # This make file is under the assumption that the file structure will be the one created during e03 where files are separated under build, src, and test
 
+all : build runTest runProgram clean
+
 # Build the java files
 build :
 	javac -d ./build -cp lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar ./src/java/*.java ; javac -d ./build -sourcepath ./src/java -cp lib/junit-4.12.jar:lib/hamcrest-core-1.3.jar ./test/java/*.java
