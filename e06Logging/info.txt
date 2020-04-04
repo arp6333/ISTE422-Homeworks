@@ -1,0 +1,12 @@
+Files needed:
+
+slf4j-api-1.7.30.jar
+logback-core-1.2.3.jar
+logback-classic-1.2.3.jar
+
+Commands to run:
+
+javac -cp .:slf4j-api-1.7.30.jar:logback-core-1.2.3.jar:logback-classic-1.2.3.jar \
+Wombat3.java
+java -cp .:slf4j-api-1.7.30.jar:logback-core-1.2.3.jar:logback-classic-1.2.3.jar \
+Wombat3
