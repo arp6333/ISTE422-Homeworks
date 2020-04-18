@@ -1,4 +1,6 @@
-How the Jar file was created:
+How the jar file was created:
 1. Enter the repository and run build.sh to compile all the the classes
 2. Create a Manifest.mf file to tell the jar where our main class is by putting "Main-Class: RunEdgeConvert" into the file
-3. Create the jar file using the command "jar cvmf Manifest.mf EdgeConvert.jar *.class" which will create a jar file named EdgeConvert.jar with all the class files and the Manifest file; I put this command into the 'script.sh' file so just run the script.sh file to do this
+3. Create the jar file using the command "jar cvmf Manifest.mf EdgeConvert.jar *.class" which will create a jar file named EdgeConvert.jar with all the class files and the Manifest file
+
+These steps are in the script.sh file (except the second step as that was done by hand). Therefore, once the Manifest file is created, running the script.sh file will create the jar.
